@@ -21,6 +21,20 @@ export function middleware(req: NextRequest) {
   ].some((r) => path.startsWith(r));
 
 
+  console.log(path, '----path---')
+
+
+  if (path === "/") {
+    if (!token) {
+      return NextResponse.redirect(new URL("/login", req.url));
+    }
+
+    if (isAdmin) {
+      return NextResponse.redirect(new URL("/admin/dashboard", req.url));
+    }
+
+    return NextResponse.redirect(new URL("/events", req.url));
+  }
   // -------------------------------
   // PUBLIC ROUTES
   // -------------------------------
@@ -42,7 +56,7 @@ export function middleware(req: NextRequest) {
     if (!token) {
       return NextResponse.redirect(new URL("/login", req.url));
     }
-    console.log(isAdminRoute,isAdmin, '-----')
+    console.log(isAdminRoute, isAdmin, '-----')
 
     if (!isAdmin) {
 
@@ -68,6 +82,7 @@ export function middleware(req: NextRequest) {
 
 export const config = {
   matcher: [
+    "/",
     "/admin/:path*",
     "/dashboard/:path*",
     "/profile/:path*",
