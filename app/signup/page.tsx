@@ -4,13 +4,19 @@ import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { signupUser } from "@/actions/user-action";
 
+interface SignupFormData {
+  email: string;
+  password: string;
+  confirm_password: string;
+  username: string;
+}
 export default function Signup() {
   const router = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<SignupFormData>();
 
   const onSubmit = async (data: any) => {
     try {
