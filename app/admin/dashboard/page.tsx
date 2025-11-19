@@ -16,14 +16,12 @@ export default function Dashboard() {
 
   if (!stats) return <p>Loading...</p>;
 
-
-  debugger;
-  const pieData = stats.eventWiseTickets.map((item: any) => ({
+  const pieData = stats.eventWiseTickets?.map((item: any) => ({
     name: item.event.title,
     value: Number(item.ticketCount)
   }));
 
-  const barData = stats.monthlyRevenue.map((item: any) => ({
+  const barData = stats.monthlyRevenue?.map((item: any) => ({
     month: item.month,
     revenue: Number(item.revenue)
   }));

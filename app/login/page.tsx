@@ -59,6 +59,7 @@ export default function LoginPage() {
       <p className="text-center text-gray-600 mt-6">
         admin login details
         admin@example.com/Admin@123
+        OR For normal user you need to signup 
       </p>
 
       <p className="text-center text-gray-600 mt-6">
