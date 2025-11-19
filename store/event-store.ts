@@ -6,6 +6,10 @@ export interface Event {
   description: string;
   date: string;
   location: string;
+  time: any;
+  video_url: string;
+  image_url: string;
+  total_seats: any;
 }
 
 interface EventState {
