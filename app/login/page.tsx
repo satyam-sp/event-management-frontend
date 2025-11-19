@@ -57,6 +57,11 @@ export default function LoginPage() {
       </form>
 
       <p className="text-center text-gray-600 mt-6">
+        admin login details
+        admin@example.com/Admin@123
+      </p>
+
+      <p className="text-center text-gray-600 mt-6">
         Don’t have an account?{" "}
         <a href="/signup" className="text-yellow-600 font-medium hover:underline">
           Sign up
