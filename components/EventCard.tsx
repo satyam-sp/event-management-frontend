@@ -14,7 +14,7 @@ const EventCard: React.FC<Props> = ({ event, onDelete }) => (
     <p className="text-xs mt-2 text-yellow-600">{event.date} - {event.location}</p>
     <div className="flex gap-2 mt-3">
       <Link
-        href={`/events/${event.id}`}
+        href={`/admin/events/${event.id}`}
         className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded-md"
       >
         Edit

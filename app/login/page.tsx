@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { loginUser } from "@/actions/user-action";
 import AuthContainer from "@/components/AuthContainer";
 import { useUser } from "@/store/user-store";
+import { useRouter } from "next/navigation";
 
 interface LoginFormData {
   email: string;
@@ -12,7 +13,8 @@ interface LoginFormData {
 }
 
 export default function LoginPage() {
-  const user = useUser();
+  const router = useRouter()
+
   const {
     register,
     handleSubmit,
@@ -20,18 +22,8 @@ export default function LoginPage() {
   } = useForm<LoginFormData>();
 
   const onSubmit = async (data: LoginFormData) => {
-    await loginUser(data);
+    await loginUser(data, router);
   };
-
-  if (user) {
-    return (
-      <AuthContainer title="Welcome">
-        <div className="text-center">
-          <h2 className="text-xl font-semibold text-gray-700">Hello, {user.name} 👋</h2>
-        </div>
-      </AuthContainer>
-    );
-  }
 
   return (
     <AuthContainer title="Login">

@@ -32,15 +32,15 @@ export default function Signup() {
           {/* Full Name */}
           <div>
             <label className="block text-sm font-medium text-gray-700">
-              Full Name
+              UserName
             </label>
             <input
               type="text"
-              {...register("name", { required: "Full name is required" })}
+              {...register("username", { required: "Full name is required" })}
               className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-400"
             />
-            {errors.name && (
-              <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>
+            {errors.username && (
+              <p className="text-red-500 text-xs mt-1">{errors.username.message}</p>
             )}
           </div>
 

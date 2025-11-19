@@ -25,7 +25,7 @@ const useUserStore = create<UserState>((set) => ({
 }));
 
 // ✅ Only expose a custom hook for read-only access
-export const useUser = () => useUserStore((state) => state.user);
+export const useUser = () => useUserStore((state) => state.user || (localStorage.user && JSON.parse(localStorage.user)));
 
 // ✅ Optional: expose other selectors if needed
 export const useUserStatus = () =>
