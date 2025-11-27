@@ -11,11 +11,18 @@ export default function EditEvent() {
   const events = useEvents();
   const event = events.find((e) => e.id === Number(id));
   const { register, handleSubmit, reset } = useForm({ defaultValues: event });
-
-  useEffect(() => {
-    if (!event) fetchEvents();
-    else reset(event);
-  }, [event]);
+useEffect(() => {
+  if (!event) {
+    fetchEvents();
+  } else {
+    reset({
+      ...event,
+      date: event.date
+        ? new Date(event.date).toISOString().split("T")[0]
+        : "",
+    });
+  }
+}, [event, reset]);
 
   const onSubmit = async (data: any) => {
     await updateEvent(Number(id), data);

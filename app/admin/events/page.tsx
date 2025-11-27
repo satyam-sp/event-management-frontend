@@ -17,7 +17,7 @@ export default function EventsPage() {
       <div className="flex justify-between items-center">
         <h1 className="text-3xl font-bold text-yellow-800">Events</h1>
         <Link
-          href="/events/create"
+          href="/admin/events/create"
           className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg"
         >
           + Create Event
